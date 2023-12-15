@@ -1,0 +1,43 @@
+<div class="app-container mt-4">
+    <h2>{{ isEditMode ? 'Editar Juego' : 'Subir Juego' }}</h2>
+  
+    <form class="upload-form" (ngSubmit)="uploadGame()" [formGroup]="uploadForm" enctype="multipart/form-data">
+      <div class="form-group title-form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" class="form-control" formControlName="name" required>
+        <div *ngIf="uploadForm.get('name')?.hasError('required') && uploadForm.get('name')?.touched">
+          El nombre es obligatorio.
+        </div>
+      </div>
+  
+      <div class="form-group artist-form-group">
+        <label for="description">Descripción:</label>
+        <textarea class="form-control" formControlName="description" required></textarea>
+        <div *ngIf="uploadForm.get('description')?.hasError('required') && uploadForm.get('description')?.touched">
+          La descripción es obligatoria.
+        </div>
+      </div>
+
+      <!--
+      <div class="form-group audio-form-group">
+        <label for="audio">Archivo de Audio:</label>
+        <input type="file" class="form-control" (change)="onAudioChange($event)" accept="audio/*" required>
+        <div *ngIf="uploadForm.get('audio')?.hasError('required') && uploadForm.get('audio')?.touched">
+          El archivo de audio es obligatorio.
+        </div>
+      </div>-->
+  
+      <div class="form-group logo-form-group">
+        <label for="logo">Archivo de Logo:</label>
+        <input type="file" class="form-control" (change)="onLogoChange($event)" accept="image/*" required>
+        <div *ngIf="uploadForm.get('logo')?.hasError('required') && uploadForm.get('logo')?.touched">
+          El archivo de logo es obligatorio.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Editar Juego' : 'Subir Juego' }}</button>
+      <button class="btn btn-volver custom-btn" (click)="goToGames()">Volver a Juegos</button>
+  
+    </form>
+  </div>
+  
