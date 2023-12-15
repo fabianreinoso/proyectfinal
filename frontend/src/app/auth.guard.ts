@@ -1,5 +1,3 @@
-/* The AuthGuard class is an Angular route guard that checks if a user is authenticated and redirects
-them to the login page if not. */
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';

@@ -1,5 +1,3 @@
-/* This is the main module of an Angular application that imports and declares various components and
-modules. */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 

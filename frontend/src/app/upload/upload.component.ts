@@ -1,5 +1,3 @@
-/* The UploadComponent class is responsible for handling the upload and editing of game data in an
-Angular application. */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -29,7 +27,7 @@ export class UploadComponent implements OnInit {
       price: [null, [Validators.required, Validators.min(0)]],
       quantity: [null, [Validators.required, Validators.min(0)]],
       date: [null, [Validators.required]],
-      //audio: [null, [Validators.required]],
+      audio: [null, [Validators.required]],
       logo: [null, [Validators.required]],
     });
   }
@@ -43,11 +41,11 @@ export class UploadComponent implements OnInit {
           (data) => {
             this.uploadForm.patchValue(data);
             // Deshabilitar validación para campos de archivo en modo de edición
-           // const audioControl = this.uploadForm.get('audio');
-           // if (audioControl) {
-           //   audioControl.clearValidators();
-           //   audioControl.updateValueAndValidity();
-           // }
+           const audioControl = this.uploadForm.get('audio');
+           if (audioControl) {
+             audioControl.clearValidators();
+             audioControl.updateValueAndValidity();
+           }
 
             const logoControl = this.uploadForm.get('logo');
             if (logoControl) {
@@ -62,12 +60,12 @@ export class UploadComponent implements OnInit {
       }
     });
   }
-  /** 
+ 
   onAudioChange(event: any): void {
     const file = event.target.files[0];
     this.uploadForm.patchValue({ audio: file });
   }
-  */
+  
 
   onLogoChange(event: any): void {
     const file = event.target.files[0];
@@ -82,7 +80,7 @@ export class UploadComponent implements OnInit {
       formData.append('price', this.uploadForm.value.price);
       formData.append('quantity', this.uploadForm.value.quantity);
       formData.append('date', this.uploadForm.value.date);
-      //formData.append('audio', this.uploadForm.value.audio);
+      formData.append('audio', this.uploadForm.value.audio);
       formData.append('logo', this.uploadForm.value.logo);
 
       const serviceCall = this.isEditMode

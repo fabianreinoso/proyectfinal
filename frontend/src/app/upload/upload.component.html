@@ -1,43 +1,72 @@
-<div class="app-container mt-4">
-    <h2>{{ isEditMode ? 'Editar Juego' : 'Subir Juego' }}</h2>
-  
-    <form class="upload-form" (ngSubmit)="uploadGame()" [formGroup]="uploadForm" enctype="multipart/form-data">
-      <div class="form-group title-form-group">
-        <label for="name">Nombre:</label>
-        <input type="text" class="form-control" formControlName="name" required>
-        <div *ngIf="uploadForm.get('name')?.hasError('required') && uploadForm.get('name')?.touched">
-          El nombre es obligatorio.
-        </div>
-      </div>
-  
-      <div class="form-group artist-form-group">
-        <label for="description">Descripción:</label>
-        <textarea class="form-control" formControlName="description" required></textarea>
-        <div *ngIf="uploadForm.get('description')?.hasError('required') && uploadForm.get('description')?.touched">
-          La descripción es obligatoria.
-        </div>
-      </div>
+<!-- upload.component.html -->
 
-      <!--
-      <div class="form-group audio-form-group">
-        <label for="audio">Archivo de Audio:</label>
-        <input type="file" class="form-control" (change)="onAudioChange($event)" accept="audio/*" required>
-        <div *ngIf="uploadForm.get('audio')?.hasError('required') && uploadForm.get('audio')?.touched">
-          El archivo de audio es obligatorio.
-        </div>
-      </div>-->
-  
-      <div class="form-group logo-form-group">
-        <label for="logo">Archivo de Logo:</label>
-        <input type="file" class="form-control" (change)="onLogoChange($event)" accept="image/*" required>
-        <div *ngIf="uploadForm.get('logo')?.hasError('required') && uploadForm.get('logo')?.touched">
-          El archivo de logo es obligatorio.
-        </div>
+<div class="app-container mt-4">
+  <h2>{{ isEditMode ? 'Editar Juego' : 'Subir Juego' }}</h2>
+
+  <form class="upload-form" (ngSubmit)="uploadGame()" [formGroup]="uploadForm" enctype="multipart/form-data">
+    <div class="form-group title-form-group">
+      <label for="name">Nombre:</label>
+      <input type="text" class="form-control" formControlName="name" required>
+      <div *ngIf="uploadForm.get('name')?.hasError('required') && uploadForm.get('name')?.touched">
+        El nombre es obligatorio.
       </div>
-  
-      <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Editar Juego' : 'Subir Juego' }}</button>
-      <button class="btn btn-volver custom-btn" (click)="goToGames()">Volver a Juegos</button>
-  
-    </form>
-  </div>
-  
+    </div>
+
+    <div class="form-group artist-form-group">
+      <label for="description">Descripción:</label>
+      <textarea class="form-control" formControlName="description" required></textarea>
+      <div *ngIf="uploadForm.get('description')?.hasError('required') && uploadForm.get('description')?.touched">
+        La descripción es obligatoria.
+      </div>
+    </div>
+
+    <div class="form-group price-form-group">
+      <label for="price">Precio:</label>
+      <input type="number" class="form-control" formControlName="price" required>
+      <div *ngIf="uploadForm.get('price')?.hasError('required') && uploadForm.get('price')?.touched">
+        El precio es obligatorio.
+      </div>
+      <div *ngIf="uploadForm.get('price')?.hasError('min') && uploadForm.get('price')?.touched">
+        El precio debe ser mayor o igual a cero.
+      </div>
+    </div>
+
+    <div class="form-group quantity-form-group">
+      <label for="quantity">Cantidad:</label>
+      <input type="number" class="form-control" formControlName="quantity" required>
+      <div *ngIf="uploadForm.get('quantity')?.hasError('required') && uploadForm.get('quantity')?.touched">
+        La cantidad es obligatoria.
+      </div>
+      <div *ngIf="uploadForm.get('quantity')?.hasError('min') && uploadForm.get('quantity')?.touched">
+        La cantidad debe ser mayor o igual a cero.
+      </div>
+    </div>
+
+    <div class="form-group audio-form-group" *ngIf="!isEditMode">
+      <label for="audio">Archivo de Audio:</label>
+      <input type="file" class="form-control" (change)="onAudioChange($event)" accept="audio/*" required>
+      <div *ngIf="uploadForm.get('audio')?.hasError('required') && uploadForm.get('audio')?.touched">
+        El archivo de audio es obligatorio.
+      </div>
+    </div>
+    
+    <div class="form-group date-form-group">
+      <label for="date">Fecha:</label>
+      <input type="date" class="form-control" formControlName="date" required>
+      <div *ngIf="uploadForm.get('date')?.hasError('required') && uploadForm.get('date')?.touched">
+        La fecha es obligatoria.
+      </div>
+    </div>
+
+    <div class="form-group logo-form-group">
+      <label for="logo">Archivo de Logo:</label>
+      <input type="file" class="form-control" (change)="onLogoChange($event)" accept="image/*" required>
+      <div *ngIf="uploadForm.get('logo')?.hasError('required') && uploadForm.get('logo')?.touched">
+        El archivo de logo es obligatorio.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Editar Juego' : 'Subir Juego' }}</button>
+    <button class="btn btn-volver custom-btn" (click)="goToGames()">Volver a Juegos</button>
+  </form>
+</div>

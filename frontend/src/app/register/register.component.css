@@ -1,85 +1,66 @@
-/* Estilos para el contenedor principal */
-.app-container::before {
-    content: "";
-    background: url('https://images2.alphacoders.com/134/1342054.png') no-repeat center center fixed;
-    background-size: cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
 .app-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    color: #fff; /* Color de texto principal */
 }
 
-/* Estilos para el formulario de registro */
-.app-container .register-form {
-    background: rgba(51, 51, 51, 0.9); /* Fondo oscuro con transparencia */
-    color: #00bfff; /* Color de texto en el contenedor */
+.register-title {
+    color: #1a237e; /* Cambia "your-desired-color" al color que desees para el título */
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.register-form {
+    background: #e8eaf6; /* Cambia "your-desired-color" al color que desees para el fondo del formulario */
+    color: #1a237e; /* Cambia "your-desired-color" al color que desees para el texto del formulario */
     border-radius: 10px;
-    width: 400px; /* Ancho fijo */
-    margin: 20px auto;
+    max-width: 400px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-/* Estilos para las etiquetas de entrada */
-.app-container label {
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
     display: block;
-    margin-top: 10px;
-    color: #00bfff; /* Color azul */
+    margin-bottom: 5px;
+    color: #1a237e; /* Cambia "your-desired-color" al color que desees para el color de la etiqueta */
     font-weight: bold;
 }
 
-/* Estilos para los campos de entrada de texto y de contraseña */
-.app-container input[type="text"],
-.app-container input[type="password"] {
+.form-control {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #00bfff; /* Borde azul del campo de entrada */
-    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
-    color: #fff;
+    border: 1px solid #1a237e; /* Cambia "your-desired-color" al color que desees para el borde */
     border-radius: 5px;
     outline: none;
     box-sizing: border-box;
 }
 
-/* Estilos para el botón de registro */
-.app-container button {
-    display: inline-block;
+.form-group div {
+    color: #d32f2f; /* Cambia "your-desired-color" al color que desees para el texto de error */
+    margin-top: 5px;
+}
+
+.btn-primary {
+    background: #1a237e; /* Cambia "your-desired-color" al color que desees para el fondo del botón */
+    color: #fff; /* Cambia "your-desired-color" al color que desees para el texto del botón */
+    border: none;
     padding: 10px 20px;
-    background: #00bfff; /* Fondo azul */
-    color: #000; /* Color de texto en el botón */
-    text-decoration: none;
     border-radius: 5px;
-    margin-top: 10px;
     font-weight: bold;
+    cursor: pointer;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
-.app-container button:hover {
-    background: #00bfff; /* Mantén el fondo azul al pasar el mouse */
-    color: #fff; /* Cambia el color de texto al pasar el mouse */
+.btn-primary:hover {
+    background: #3949ab; /* Cambia "your-hover-color" al color que desees al pasar el mouse sobre el botón */
+    color: #fff;
     transform: scale(1.03);
-}
-
-/* Estilos para el título */
-.app-container h2 {
-    text-align: center;
-    color: #00bfff; /* Color azul */
-    margin-bottom: 20px;
-    font-size: 2.5em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    font-family: 'Arial', sans-serif; /* Cambia 'Arial' por el tipo de letra que desees */
 }

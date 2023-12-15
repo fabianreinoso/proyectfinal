@@ -1,5 +1,3 @@
-/* This code is implementing a login and registration functionality using bcrypt for password
-encryption. */
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
 

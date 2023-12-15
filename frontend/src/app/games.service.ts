@@ -1,4 +1,3 @@
-/* The GameService class is an Angular service that handles HTTP requests for game-related data. */
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';

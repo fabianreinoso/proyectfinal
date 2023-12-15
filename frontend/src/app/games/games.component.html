@@ -6,14 +6,14 @@
         <button routerLink="/upload" class="btn-upload">Subir Juego</button>
       </div>
     </header>
-  
+    <!--
     <form (ngSubmit)="searchGames()" [formGroup]="searchForm" class="form-inline mb-3">
       <div class="form-group mr-2">
         <label for="searchQuery" class="sr-only"></label>
         <input type="text" class="form-control" id="searchQuery" placeholder="Buscar juegos" formControlName="searchQuery">
       </div>
       <button type="submit" class="btn btn-primary">Buscar</button>
-    </form>
+    </form>-->
   
     <ul class="game-list">
       <li *ngFor="let game of displayedGames" class="game-item">
@@ -23,20 +23,21 @@
           </div>
           <div class="game-details">
             <div class="game-name">{{ game.name }}</div>
-            <div class="game-description">{{ game.description }}</div>
+            <div class="game-description">Nombre: {{ game.description }}</div>
+            <div class="game-description">Precio: {{ game.price }}</div>
+            <div class="game-description">Cantidad: {{ game.quantity }}</div>
+            <!--<div class="game-description">Fecha: {{ game.date }}</div>-->
           </div>
         </div>
         <div class="game-buttons">
           <!-- Lógica para reproducir un juego, si es necesario -->
-          <button (click)="playGame(game._id)" class="btn btn-success btn-play">Reproducir</button>
           <button (click)="editGame(game)" class="btn btn-primary btn-edit">Editar</button>
           <button (click)="deleteGame(game)" class="btn btn-danger btn-delete">Eliminar</button>
         </div>
       </li>
     </ul>
-  
     <footer>
-      <p>Game Player - Laboratorio 13</p>
+      <p>Game Player</p>
     </footer>
   </div>
   

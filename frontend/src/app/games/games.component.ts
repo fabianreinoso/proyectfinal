@@ -1,5 +1,3 @@
-/* The GamesComponent class is responsible for managing the games page, including loading games,
-searching games, playing games, editing games, deleting games, and handling user authentication. */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
