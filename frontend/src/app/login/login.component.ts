@@ -1,3 +1,5 @@
+/* The LoginComponent is responsible for handling user login functionality, including form validation
+and authentication error handling. */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';

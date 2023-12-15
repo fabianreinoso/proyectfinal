@@ -1,3 +1,5 @@
+/* The UploadComponent class is responsible for handling the upload and editing of game data in an
+Angular application. */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';

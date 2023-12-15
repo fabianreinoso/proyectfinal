@@ -1,3 +1,5 @@
+/* The code you provided is a basic setup for a Node.js server using the Express framework. Here's a
+breakdown of what each part does: */
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');

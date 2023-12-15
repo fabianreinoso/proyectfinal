@@ -1,3 +1,4 @@
+/* This code is defining a Mongoose schema and model for a game. */
 const mongoose = require('mongoose');
 
 const gameSchema = new mongoose.Schema({

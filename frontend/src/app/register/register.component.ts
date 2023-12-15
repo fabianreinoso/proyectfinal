@@ -1,3 +1,5 @@
+/* The RegisterComponent class is responsible for handling user registration functionality in an
+Angular application. */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';

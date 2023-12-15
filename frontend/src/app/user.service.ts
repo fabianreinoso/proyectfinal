@@ -1,3 +1,5 @@
+/* The UserService class is responsible for handling user authentication and registration requests, as
+well as managing the user's login status. */
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';

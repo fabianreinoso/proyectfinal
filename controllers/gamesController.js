@@ -1,4 +1,5 @@
-const Game = require('../models/Games'); // Cambiado de Song a Game
+/* The code is defining several functions for handling CRUD operations on a "Game" model. */
+const Game = require('../models/games'); // Cambiado de Song a Game
 
 const uploadGame = async (req, res) => {
   try {
@@ -12,7 +13,7 @@ const uploadGame = async (req, res) => {
       price: price,
       quantity: quantity,
       date: date,
-      audioUrl: audioFile.path, // Asumí que querías mantener el campo audioUrl, ajusta según tus necesidades
+      audioUrl: audioFile.path, 
       logoUrl: logoFile.path,
     });
 
