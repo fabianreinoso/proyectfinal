@@ -1,0 +1,28 @@
+# Usa una imagen de Node.js con Angular CLI
+FROM node:14 as builder
+
+# Establece el directorio de trabajo en la carpeta 'frontend'
+WORKDIR /usr/src/app/frontend
+
+# Copia los archivos 'package.json' e 'package-lock.json' para instalar las dependencias
+COPY package*.json ./
+
+# Instala las dependencias
+RUN npm install
+
+# Copia el código fuente
+COPY . .
+
+# Compila la aplicación Angular para producción
+RUN npm run build --prod
+
+# Utiliza una imagen de Nginx para servir la aplicación compilada
+FROM nginx:alpine
+
+# Copia los archivos de compilación desde el 'builder' a la ubicación correcta en la imagen de Nginx
+COPY --from=builder /usr/src/app/frontend/dist/frontend /usr/share/nginx/html
+
+# Expone el puerto en el que Nginx estará escuchando
+EXPOSE 80
+
+# CMD predeterminado proporcionado por la imagen base de Nginx
